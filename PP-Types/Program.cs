@@ -1,5 +1,5 @@
 ﻿// Write required code.
-
+// #1 try
 // Data - do not change it in code!
 string[] names = {
     "Mickey Mouse", "Minnie Mouse", "Donald Duck", "Goofy", "Pluto", "Daisy Duck", "Simba", "Nala", 
@@ -15,7 +15,21 @@ string[] names = {
 void PrintGroups(string[] t, int perLine)
 {
 
-    // Write required code.
+    for (int i = 0; i < t.Length; i++)
+    {
+        Console.Write(t[i]);
+        if (i < t.Length - 1)
+        {
+            Console.Write(", ");
+            if ((i + 1) % perLine == 0)
+                Console.WriteLine();
+        }
+        else
+        {
+            Console.Write(".");
+        }
+    }
+    Console.WriteLine();
 
 }
 
@@ -28,7 +42,41 @@ void PrintGroups(string[] t, int perLine)
 void PrintColumns(string[] t, int perLine, int width)
 {
 
-    // Write required code.
+    string result;
+    for (int i = 0; i < t.Length; i++)
+    {
+        if (t[i].Length <= width)
+        {
+            string space = new string(' ', width - t[i].Length);
+            result = t[i] + space;
+
+            Console.Write(result);
+
+            if ((i + 1) % perLine != 0)
+            {
+                Console.Write("| ");
+            }
+            else
+            {
+                Console.WriteLine();
+            }
+        }
+
+        else
+        {
+            result = t[i].Remove(width);
+            Console.Write(result);
+
+            if ((i + 1) % perLine != 0)
+            {
+                Console.Write("| ");
+            }
+            else
+            {
+                Console.WriteLine();
+            }
+        }
+    }
 
 }
 
